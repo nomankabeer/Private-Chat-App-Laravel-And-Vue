@@ -24,8 +24,6 @@ Route::group([
     'middleware' => 'auth'], function(){
     Route::get('get/user/list' , 'ChatController@getUserList');
     Route::post('get/user/chat' , 'ChatController@getUserChat');
-    Route::get('get/user/chat' , 'ChatController@getUserChat');
-    Route::post('get/user/avatar' , 'ChatController@getUserAvatar');
     Route::post('store/message' , 'ChatController@storeMessage');
     Route::post('get/user/details' , 'ChatController@userDetails');
     Route::view('chat', 'chat');

@@ -1,7 +1,6 @@
 <template>
     <div class="chat private-chat-box" v-if="user_chat_id">
         <div class="chat-header clearfix">
-            <!--<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />-->
             <img :src="other_user_avatar" alt="avatat"/>
             <div class="chat-about">
                 <div class="chat-with">{{other_user_name}}</div>
@@ -71,25 +70,18 @@
                     receiver_id: this.user_chat_id,
                 })
                     .then(response => {
-                        // console.log(response.data);
-                        // this.users = response.data;
                     })
                     .catch(error => {
-                        // console.log(error);
                     });
             },
             loadUserMessages(id){
-                // console.log('load user mesgs is loaded' , id);
                 axios.post('/get/user/chat', {
                     receiver_id: id
                 })
                     .then(response => {
                         this.chat = response.data;
-                        // console.log(response.data , 'user chat against user id');
-
                     })
                     .catch(error => {
-                        // console.log(error);
                     });
             },
             authUserDetails(){
@@ -101,7 +93,6 @@
                         this.auth_user_name = user_details.name;
                     })
                     .catch(error => {
-                        // console.log(error);
                     });
             },
             otherUserDetails(){
@@ -114,12 +105,10 @@
                          this.other_user_avatar = user_details.avatar;
                     })
                     .catch(error => {
-                        // console.log(error);
                     });
             },
             pageScroll(){
                 let container = document.querySelector('#scrol'); //this.$el.querySelector(".scrol");
-                // if(container){container.scrollTop = container.scrollHeight;}
                 setTimeout(function(){
                     container.scrollTop = container.scrollHeight;
                 });
@@ -127,14 +116,11 @@
         },
         watch:{
             user_chat_id(){
-                // console.log('watch if user show msg id is changed' , this.user_chat_id);
                 this.otherUserDetails();
                 this.loadUserMessages(this.user_chat_id);
-
             }
         },
         mounted() {
-            // console.log('Component mountedsssssssssssssssssssssss.' );
             this.authUserDetails();
         }
     }
