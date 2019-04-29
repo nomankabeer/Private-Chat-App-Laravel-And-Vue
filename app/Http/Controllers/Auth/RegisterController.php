@@ -40,12 +40,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
+/*
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -55,12 +50,7 @@ class RegisterController extends Controller
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
+
     protected function create(array $data)
     {
         return User::create([
@@ -68,5 +58,37 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }*/
+
+
+   /* public function register_user(Request $request){
+
+        $this->validator($request->all())->validate();
+        $name = $this->upload($request->File('avatar') , 'user_profile');
+        event(new Registered($user = $this->create($request->all() , $name)));
+        return redirect('chat');
+    }*/
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+        ]);
+    }
+    protected function create(array $data , $name)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'avatar' =>$name,
+        ]);
+    }
+    public function delete_user($id){
+        User::where('id' , $id)->where('parent_id' , Auth::user()->id)->delete();
+        UserDetail::where('user_id' , $id)->delete();
+        flash('user Deleted')->error()->important();
+        return redirect()->route('salon.user.list');
     }
 }

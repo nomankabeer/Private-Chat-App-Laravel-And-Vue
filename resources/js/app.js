@@ -21,6 +21,9 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 
+
+
+
 Vue.component('user-list', require('./components/UserList.vue').default);
 Vue.component('user-chat', require('./components/UserChat.vue').default);
 
@@ -35,14 +38,6 @@ const app = new Vue({
     el: '#chat_app',
     data:{
         auth_user_id: $('input[name=auth_user_id]').val(),
-    },
-
-    methods:{
-        getTime(){
-            let time = new Date();
-            return time.getDate()+'-'+time.getMonth()+'-'+time.getFullYear() +" | "+ time.getHours()+':'+time.getMinutes()+':'+time.getSeconds();
-        },
-    },
-    mounted(){
+        asset_path: $('input[name=asset_storage_path]').val(),
     },
 });

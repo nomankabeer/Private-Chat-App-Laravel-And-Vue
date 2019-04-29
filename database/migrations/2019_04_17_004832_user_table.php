@@ -13,9 +13,9 @@ class UserTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('avatar' , 255)->nullable();
-        });
+        /*Schema::table('users', function (Blueprint $table) {
+           
+        });*/
     }
 
     /**

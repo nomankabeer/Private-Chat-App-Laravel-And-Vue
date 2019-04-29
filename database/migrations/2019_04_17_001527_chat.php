@@ -18,7 +18,7 @@ class Chat extends Migration
             $table->integer('sender_id')->nullable();
             $table->integer('receiver_id')->nullable();
             $table->string('message' , 255)->nullable();
-            $table->dateTime('last_login')->nullable();
+            $table->tinyInteger('is_seen')->nullable();
             $table->timestamps();
         });
     }
