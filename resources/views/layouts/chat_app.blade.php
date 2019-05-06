@@ -18,12 +18,3 @@
 <script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>
-
-{{--
-
-vue
-auth
-broadcast -> generate event and listener
-pusher -> sign up -> get key and paste in env
-
---}}
