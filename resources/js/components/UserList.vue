@@ -1,6 +1,6 @@
 <template>
 <span >
-    <div class="people-list" id="people-list">
+    <div>
     <ul class="over-flow-y-scroll list scroll-style-1">
         <li class="clearfix" v-for="user,index in users">
             <a href="#" v-on:click="show_chat_id =  user.id">

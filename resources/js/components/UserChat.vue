@@ -75,7 +75,7 @@
                 let seconds = date.getSeconds();
                 let ampm = hours >= 12 ? 'pm' : 'am';
                 hours = hours % 12;
-                hours = hours ? hours : 12; // the hour '0' should be '12'
+                hours = hours ? hours : 12;
                 minutes = minutes < 10 ? '0'+minutes : minutes;
                 let Time = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
                 return date.toDateString() + ' | ' + Time;
@@ -148,7 +148,7 @@
                     });
             },
             pageScroll(){
-                let container = document.querySelector('#scrol'); //this.$el.querySelector(".scrol");
+                let container = document.querySelector('#scrol');
                 setTimeout(function(){
                     container.scrollTop = -container.scrollHeight;
                 });
