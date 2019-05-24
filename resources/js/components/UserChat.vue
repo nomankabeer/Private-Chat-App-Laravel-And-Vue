@@ -49,6 +49,7 @@
         data(){
           return {
               chat:{},
+              other: '',
               message:'',
               auth_user_name:'',
               other_user_avatar:'',
