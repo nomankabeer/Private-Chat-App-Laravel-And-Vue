@@ -1,6 +1,6 @@
 @extends('layouts.chat_app')
 @section('content')
-    <div class="container clearfix mybody" style="width: 780px !important" id="chat_app">
+    <div class="container clearfix mybody" id="chat_app">
     <input type="hidden" name="auth_user_id"  value="{{Auth::user()->id}}">
     <input type="hidden" name="asset_storage_path"  value="{{asset('storage/')}}">
             <user-list
