@@ -6,6 +6,7 @@
             <user-list
                 :auth_user_id="auth_user_id"
                 :asset_path="asset_path"
-            ></user-list>
+            >
+            </user-list>
     </div>
 @endsection
