@@ -15,7 +15,6 @@
             </div>
         </li>
     </ul>
-
     </div>
     <user-chat
     :user_chat_id="show_chat_id"
